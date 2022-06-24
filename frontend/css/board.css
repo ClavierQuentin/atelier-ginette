@@ -1,0 +1,29 @@
+/*-------------CONNEXION-----------------*/
+.conteneurConnexion{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+.conteneurConnexion :first-child{
+    margin: 10px 0;
+}
+.conteneurConnexion :nth-child(2){
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.conteneurConnexion :nth-child(2) input{
+    height: 20px;
+    border: 1px solid #f8cbc6;
+}
+.btnConnexion{
+    background-color: #f8cbc6;
+    border: none;
+    padding: 15px 40px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: white;
+}

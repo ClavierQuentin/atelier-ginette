@@ -1,0 +1,67 @@
+.divTexte{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divTexte p{
+    margin: 10px;
+    width: 80%;
+}
+.banniere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.portrait img{
+    height: 450px;
+}
+    /*--------------------Banniere qui je suis-----------------*/
+    .quiJeSuis{
+        padding: 80px 0;
+    }
+/*-----------------------Bannière lieu---------------*/
+.lieu{
+    color: white;
+    padding: 80px 0;
+}
+.conteneurCarrousel{
+    height: 450px;
+    width: 400px;
+    overflow: hidden;
+}
+.carrousel{
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    transition: 2s ease;
+}
+.tailleImg{
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+    /*----------------------------Bannière valeurs-------------------*/
+    .titreValeurs{
+        text-align: center;
+        padding-top: 20px;
+    }
+    .wrapReverse{
+        flex-wrap: wrap-reverse;
+    }
+/*--------------------------Responsive------------------*/
+@media screen  and (max-width:400px){
+    .divTexte p{
+        width: 90%;
+    }
+    .divTexte{
+        width: 100%;
+    }
+    .portrait img{
+        display: none;
+    }
+    .conteneurCarrousel{
+        display: none;
+    }
+}

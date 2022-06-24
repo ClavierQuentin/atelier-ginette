@@ -1,0 +1,702 @@
+/*Installation des 2 polices spéciales*/
+@font-face {
+    font-family: 'Angella';
+    src: url('../fonts/angella-white-font/AngellaWhitePersonalUseFont-ywA8e.otf');
+}
+@font-face {
+    font-family: 'Garet';
+    src: url("../fonts/garet.book.otf"),
+        url("../fonts/garet.book.ttf");
+}
+/*Margin 0 sur tous les éléments*/
+*{
+    margin: 0;
+}
+body{
+    position: relative;
+    font-family: 'Garet';
+    background-color: #f8cbc6;
+}
+h2, h3, h4, h5{
+    font-family: 'Playfair Display', serif;
+    font-weight: lighter;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+h4{
+    font-size: 20px;
+    font-weight: normal; 
+}
+.marginRight10{
+    margin-right: 10px;
+}
+.backGroundFleur{
+    background-color: white;
+}
+    /*----------------------------Barre de navigation-----------------*/
+    nav{
+        display: none;
+        height: 90vh;
+        transition: 1s;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+    }
+    nav p{
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fadeIn 1s;
+        font-weight: bold;
+    }
+    nav a{
+        padding: 15px;
+        color: white;
+
+    }
+    nav a:hover{
+        transform: scale(1.1);
+    }
+    @keyframes fadeIn{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+.panier{
+    position: fixed;
+    top: 0;
+    left: -500px;
+    z-index: 6000;
+    width: 500px;
+    max-width: 80vw;
+    /*height: 100vh;*/
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2%;
+    padding: 20px 0;
+}
+.panier button{
+    border: 0;
+    background-color: #f8cbc6;
+    padding: 2%;
+    color: white;
+    cursor: pointer;
+}
+.divPanier{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 10px 0;
+    gap: 2%;
+}
+.divProduit{
+    display: flex;
+    gap: 2%;
+    justify-content: space-around;
+    margin: 5px 0;
+}
+.divDescription{
+    text-align: center;
+    width: 50%;
+}
+.blocPanier{
+    position: absolute;
+    top: 30px;
+    left: 1300px;
+    z-index: 2003;
+    cursor: pointer;
+    color: white;
+}
+.affichagePanier{
+transform: translateX(500px);
+}
+@media screen and (min-width:600px) and (max-width:1000px) {
+    .blocPanier{
+        left: 80%;
+    }
+}
+@media screen and (max-width:600px) {
+    .blocPanier{
+        left: 80%;
+        top: 10px;
+    }
+    .blocPanier img{
+        width: 25px;
+    }
+
+}
+/*Titre*/
+.conteneurName{
+    z-index: 2000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.name{
+    color: white;
+    font-family: 'Angella';
+    font-size: 80px;
+}
+    /*-------------------------Bloc menu--------------------*/
+    .divMenu{
+        position: absolute;
+        top: 30px;
+        left: 100px;
+        z-index: 2001;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .menu{
+        position: relative;
+        width: 27px;
+        height: 4px;
+        border-radius: 5px;
+        background-color: white;
+        transition: 0.2s ease-in-out;
+    }
+    .menu::before, .menu::after{
+        position: absolute;
+        content: '';
+        width: 27px;
+        height: 4px;
+        border-radius: 5px;
+        background-color: white;
+        transition: 0.5s ease-in-out;
+    }
+    .menu::after{
+        transform: translateY(10px);
+    }
+    .menu::before{
+        transform: translateY(-10px);
+    }
+    .divMenu.ouverture .menu{
+        background: transparent;
+    }
+    .divMenu.ouverture .menu::after{
+        top: 0;
+        transform: rotateZ(45deg);
+    }
+    .divMenu.ouverture .menu::before{
+        bottom: 0;
+        transform: rotateZ(-45deg);
+    }
+/*-----------------------Footer------------------*/
+footer{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;    
+    padding: 15px 20px;
+}
+footer a{
+    color: white;
+}
+.banniereReseaux{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding-top: 30px;
+    color: white;
+}
+.banniereCGV{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/*---------------------------Responsive---------------------*/
+@media screen  and (max-width:400px) {
+    .name{
+        font-size:40px;
+    }
+    .divMenu{
+        top: 5px;
+        left: 5px;
+    }
+    footer{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+.divTexte{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divTexte p{
+    margin: 10px;
+    width: 80%;
+    text-align: justify;
+}
+.banniere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.portrait img{
+    height: 500px;
+    width: auto;
+}
+.paysage{
+    width: 400px;
+    height: auto;
+}
+    /*--------------------Banniere qui je suis-----------------*/
+    .quiJeSuis{
+        padding: 80px 0;
+    }
+/*-----------------------Bannière lieu---------------*/
+.lieu{
+    color: white;
+    padding: 80px 0;
+}
+.conteneurCarrousel{
+    height: 500px;
+    width: 333px;
+    overflow: hidden;
+}
+.carrousel{
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    transition: 2s ease;
+}
+.tailleImg{
+    min-width: 100%;
+    min-height: 100%;
+   /* object-fit: cover;*/
+}
+    /*----------------------------Bannière valeurs-------------------*/
+    .titreValeurs{
+        text-align: center;
+        padding-top: 20px;
+    }
+    .wrapReverse{
+        flex-wrap: wrap-reverse;
+    }
+/*--------------------------Responsive------------------*/
+@media screen  and (max-width:400px){
+    .divTexte p{
+        width: 90%;
+    }
+    .divTexte{
+        width: 100%;
+    }
+    .portrait img{
+        display: none;
+    }
+    .paysage{
+        display: none;
+    }
+    .conteneurCarrousel{
+        display: none;
+    }
+}
+@media screen  and (min-width:600px) and (max-width:900px){
+    .divTexte p{
+        width: 90%;
+    }
+    .divTexte{
+        width: 100%;
+    }
+}
+
+/*--------------Barre de navigation----------*/
+nav{
+    justify-content:center;
+}
+    /*-----------------Partie titre--------------*/
+ /*   .conteneurName{
+        position: absolute;
+    }
+    .name{
+        margin-top: 5px;
+    }*/
+/*----------------Carrousel------------------*/
+header{
+    position: relative;
+    color: white;
+}
+.conteneurNew{
+    display: flex;
+    justify-content: center;
+}
+.conteneurNew h2{
+    position: absolute;
+    z-index: 101;
+    margin-top: 20%;
+    font-size: 40px;
+}
+.conteneurNew button{
+    position: absolute;
+    z-index: 102;
+    margin-top: 29%;
+    background-color: #f8cbc6;
+    border: 0;
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+.conteneurNew button:hover{
+    transform: scale(1.06);
+}
+.conteneurNew a{
+    color: white;
+}
+.tailleImg{
+    object-fit: cover;
+}
+.carrousel{
+    /*min-width: 100%;*/
+    height: 95vh;
+    display: flex;
+    transition: 2s ease;
+}
+.conteneur{
+    overflow: hidden;
+    /*min-width: 100%;
+    height: 95vh;*/
+}
+    /*-------------Banniere présentation-----------*/
+    .prez h2{
+        margin-left: 5%;
+        padding-top: 2%;
+        color: white;
+    }
+    .banniereCitation{
+        height: 28vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .banniereCitation p{
+        width: 90%;
+        font-style: italic;
+        color: white;
+        font-size: 20px;
+    }
+/*----------Banniere catégories---------*/
+.decouvrir h2{
+    margin-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+.categories{
+    height: 55vh;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 5%;
+}
+.categories div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    gap: 15px;
+    overflow: hidden;
+
+}
+.divImg{
+    width: 350px;
+    height: 250px;
+}
+.imgCategorie{
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+}
+.imgCategorie:hover{
+    transform: scale(1.1);
+    transition: 2s;
+}
+    /*-----------------Bannière picto----------------*/
+    .bannierePicto{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 40px;
+    }
+    .bannierePicto img{
+        width: 100px;
+        height: 100px;
+    }
+    .bannierePicto div{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .bannierePicto label{
+        color: white;
+        font-size: 20px;
+    }
+/*----------------------Responsive------------------*/
+@media screen  and (max-width:400px) {
+    .conteneurNew h2{
+        font-size: 20px;
+        margin-top: 200px;
+    }
+    .conteneurNew button{
+        margin-top: 250px;
+    }
+    .banniereCitation{
+        height: 100%;
+        font-size: 15px;
+    }
+    .categories{
+        height: 100%;
+    }
+    .imgCategorie{
+        width: 250px;
+    }
+    .bannierePicto img{
+        width: 50px;
+        height: 50px;
+    }
+    .bannierePicto{
+        flex-direction: column;
+    }
+}
+.sectionProduits{
+    padding: 5% 0;
+}
+.titreProduits{
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+.cardsProduits{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.cardsProduits label{
+    text-align: center;
+    margin-top: 3%;
+}
+.card{
+    display: block;
+    width: 277px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2%;
+    cursor: pointer;
+}
+.conteneurImgCard{ 
+    width: 304px;
+    height: 455px;
+    overflow: hidden;
+}
+.imgCardProduit{
+    width: 304px;
+    height: 455px;
+    object-fit: cover;
+    transition: 1s;
+}
+.imgCardProduit:hover{
+    transform: scale(1.05);
+}
+.cardProduit{
+    display: block;
+    width: 304px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.conteneurImgProduit{
+    width: 304px;
+    height: 455px;
+    overflow: hidden;
+}
+.imgProduit{
+    width: 304px;
+    height: 455px;
+    object-fit: cover;
+    transition: 1s;
+}
+.imgProduit:hover{
+    transform: scale(1.05);
+}
+
+
+.imgProduitUnique{
+    width: 305px;
+    height: 400px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+.sectionPhoto{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.description1{
+    width: 40%;
+    text-align: center;
+    margin: 35PX;
+}
+
+.description1 h2{
+    margin:  35px;
+}
+.prix{
+    text-align: end;
+    margin: 35px;
+    font-size: 20px;
+}
+.descriptionCourte{
+    margin: 35px;
+    text-align: justify;
+}
+@media screen and (max-width:500px) {
+    .description1{
+        width: 100%;
+    }
+    .descriptionCourte{
+        margin: 0;
+    }
+}
+.description1 button{
+    margin: 35px;
+    background-color: #f8cbc6;
+    border: 0;
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+.description1 button:hover{
+    color: #f8cbc6;
+    background-color: white;
+    border: 1px solid #f8cbc6;
+}
+hr{
+    width:30%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%; 
+    color: #f8cbc6;
+}
+.compo{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 2%;
+}
+.titreProduitEquivalent{
+    margin-left: 3%;
+}
+.imgProduitEquivalent{
+    width: 304px;
+    height: 455px;
+}
+.produit{
+    display: flex;
+    gap: 20px;
+    margin: 2%;
+}
+.produit div{
+    text-align: center;
+}
+
+.produitEquivalent{
+    display: flex;
+flex-direction: column;
+align-items: center;
+gap: 35px;
+}
+
+.basket{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    padding: 5%;
+}
+.imgProduitPanier{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.imgProduitPanierDefilant{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.produitPanier{
+    display: flex;
+    gap: 2%;
+    border-top: 2px #f8cbc6 solid;
+
+}
+.pagePanier div{
+    margin: 2%;
+}
+.sousTotal button{
+    margin: 4%;
+}
+
+/*------------------------
+                                TABLEAU DE BORD
+                                                    -----------------*/
+
+.conteneurConnexion{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+.connexionTitle{
+    margin: 10px 0;
+}
+.conteneurInput{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.inputConnexion{
+    height: 35px;
+    border: 1px solid #f8cbc6;
+}
+.btnConnexion{
+    background-color: #f8cbc6;
+    border: none;
+    padding: 15px 40px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: white;
+}

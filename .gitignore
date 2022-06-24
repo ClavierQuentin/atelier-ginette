@@ -1,0 +1,14 @@
+
+.env*
+!.env.project
+!.env.vault
+
+.env.me
+
+package.json
+package-lock.json
+node_modules
+
+frontend/package.json
+frontend/package-lock.json
+frontend/node_modules
