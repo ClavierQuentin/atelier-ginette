@@ -7,6 +7,12 @@ const app = express();
 
 require('dotenv').config()
 
+const PORT = process.env.PORT || 4000; 
+
+app.use(express.static(path.join(__dirname, '../frontend')));
+app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../frontend/index.html')));
+
+
 const db = mysql.createConnection({
     host: process.env.host,
     user: process.env.user,
@@ -22,10 +28,6 @@ db.connect((err)=>{
     console.log("Connecté à MySql");
 })
 
-const PORT = process.env.PORT || 4000; 
-
-app.use(express.static(path.join(__dirname, '../frontend')));
-app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../frontend/index.html')));
 
 app.use(cors());
 app.use((req, res, next) => {
