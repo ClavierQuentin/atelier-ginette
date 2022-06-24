@@ -17,7 +17,7 @@ const db = mysql.createConnection({
     host: process.env.host,
     user: process.env.user,
     password: process.env.password,
-    database: 'zlsorffc7qeih1l3',
+    database: process.env.database,
     charset  : 'UTF8_UNICODE_CI',
     multipleStatements: true
 })
