@@ -1,5 +1,6 @@
 import aboutPage from "./pages/about.js";
 import categories from "./pages/categories.js";
+import contactPage from "./pages/contact.js";
 import homePage from "./pages/home.js";
 import productPage from "./pages/productPage.js";
 import produits from "./pages/produits.js";
@@ -13,6 +14,7 @@ const routes = {
     "/pages/categories": categories,
     "/pages/categories/id": produits,
     "/pages/produit/id": productPage,
+    "/contact": contactPage
 }
 
 const router = () =>{

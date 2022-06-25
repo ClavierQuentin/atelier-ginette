@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
 const path = require('path');
+const nodeMailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -11,6 +13,9 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../frontend/index.html')));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 const db = mysql.createConnection({
@@ -80,5 +85,34 @@ app.get("/pages/produit/:id", (req,res) => {
     })
 });
 
+
+app.post('/send', (req, res)=>{
+    let transporter = nodeMailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: process.env.mail,
+            pass: process.env.pass
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+    let mailOptions = {
+        to:"clavier.quentin@gmail.com",
+        from: req.body.email,
+        subject: req.body.sujet,
+        html: "<b>" + req.body.prenom + " " + req.body.nom + "</b>" + " " + '\"' + req.body.email + '\"' + " a écrit : " + "<br> " + "<h3>" + req.body.sujet + "</h3>" + "<br>" + "<p>" + req.body.body + "</p>" + "<br>Répondre à " + req.body.email, 
+    };
+    transporter.sendMail(mailOptions, (err, info)=>{
+        if(err){
+            return console.log(err)
+        }
+        console.log("Message envoyé", info.messageId, info.response);
+        //res.sendFile(path.resolve(__dirname, '../frontend/index.html'))
+        res.status(200).redirect('http://localhost:4000/')
+    })
+})
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

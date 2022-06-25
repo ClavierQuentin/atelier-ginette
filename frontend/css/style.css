@@ -200,8 +200,11 @@ footer{
     gap: 30px;    
     padding: 15px 20px;
 }
-footer a{
+.liens{
     color: white;
+}
+.liens:hover{
+    transform: scale(1.05);
 }
 .banniereReseaux{
     display: flex;
@@ -693,6 +696,46 @@ gap: 35px;
     border: 1px solid #f8cbc6;
 }
 .btnConnexion{
+    background-color: #f8cbc6;
+    border: none;
+    padding: 15px 40px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+/*--------------------------PAGE CONTACT----------------------------------*/
+.conteneurContact{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+.conteneurContact h2{
+    margin: 10px 0;
+    font-size: 28px;
+}
+.conteneurContact form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+.conteneurContact input{
+    border: 1px #f8cbc6 solid;
+    
+}
+.conteneurContact textarea{
+    border: 1px #f8cbc6 solid;
+}
+.submit-div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.submit-div input{
     background-color: #f8cbc6;
     border: none;
     padding: 15px 40px;
