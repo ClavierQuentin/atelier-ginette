@@ -1,4 +1,4 @@
-
+.env*
 !.env.project
 !.env.vault
 
@@ -6,3 +6,7 @@
 
 
 
+package.json
+package-lock.json
+frontend/package.json
+frontend/package-lock.json

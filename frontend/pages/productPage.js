@@ -5,6 +5,7 @@ const request = parseRequestUrl();
 const productPage = {
     generate: () =>{
         let main = document.getElementById('main-conteneur');
+        console.log(request.id);
         fetch('/pages/produit/'+ request.id,{
             headers:{
                 "Content-Type":"application/json",

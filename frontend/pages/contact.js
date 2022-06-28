@@ -1,6 +1,7 @@
 const contactPage = {
     generate: () =>{
         let main = document.getElementById('main-conteneur');
+        const conteneurName = document.getElementById('conteneurName');
         main.innerHTML = `
         <div class="conteneurContact backGroundFleur">
             <h2>Contactez-moi !</h2>
@@ -20,6 +21,7 @@ const contactPage = {
             </form>
         </div>
         `
+        conteneurName.style.position = "relative";
     }
 }
 export default contactPage;

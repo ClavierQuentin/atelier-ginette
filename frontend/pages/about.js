@@ -3,6 +3,8 @@ import { carrouselAbout } from "../scripts/carrouselAbout.js";
 const aboutPage = {
     generate : () => {
         let main = document.getElementById('main-conteneur');
+        const conteneurName = document.getElementById('conteneurName');
+
         fetch("/pages/about/", {
             headers:{
                 "Content-Type":"application/json",
@@ -102,6 +104,7 @@ const aboutPage = {
     
             `
             carrouselAbout(data);
+            conteneurName.style.position = "relative";
         })
         .catch(function(err){
             console.log(err);

@@ -29,10 +29,19 @@ let nom = document.getElementById('name');
 //On récupère conteneur-name
 let conteneurName = document.getElementById('conteneurName');
 
+
 //On déclare un booléen faux pour valider une condition
 let isOuvert = false;
-//Au click du menu
-divMenu.addEventListener('click', () => {
+const gestionMenu = () => {
+    let requestUrl = parseRequestUrl();
+    let pageAccueil = false
+    if(requestUrl.page == undefined){
+        pageAccueil = true
+    }
+    else{
+        pageAccueil = false
+    }   
+    console.log(requestUrl.page);
     //Si le booléen est faux
     if(!isOuvert){
         //On rajoute la class css pour effectuer les mouvements
@@ -48,7 +57,7 @@ divMenu.addEventListener('click', () => {
             //On rajoute une classe pour corriger le décalage du titre
             nom.classList.add('marginRight10');
             //On change la position du titre du site lors de l'apparation des liens de navigation
-            conteneurName.style.position = "absolute";
+            //conteneurName.style.position = "absolute";
         },300)
         //On passe le booléen à vrai
         isOuvert = true;
@@ -62,14 +71,22 @@ divMenu.addEventListener('click', () => {
             main.style.display = 'block';
             //On replace le titre
             nom.classList.remove('marginRight10');
-            conteneurName.style.position = "relative";
-            if(pageAccueil){
-                conteneurName.style.position = "absolute";
-            }
+          //  conteneurName.style.position = "relative";
+           /* if(requestUrl.page){
+                conteneurName.style.position = "relative";
+            }*/
 
         },300)
         isOuvert = false;
     }
+}
+//Au click du menu
+divMenu.addEventListener('click', gestionMenu);
+
+let links = document.getElementsByClassName('links');
+
+Array.from(links).forEach(link =>{
+    link.addEventListener('click', gestionMenu)
 })
 
 let blocPanier = document.getElementById('blocPanier')
