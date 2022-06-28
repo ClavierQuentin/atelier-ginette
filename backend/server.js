@@ -83,6 +83,7 @@ app.get("/pages/categories/:id", (req, res) => {
         if(err){
             throw err
         }
+        console.log(req.params.id);
         res.send(result);
     })
 });

@@ -127,7 +127,6 @@ const homePage = {
             }
         })
         .then((data)=>{
-            console.log(data);
             titreAcceuil.innerHTML = data[0].titre_accueil;
             texteAccueil.innerHTML = data[0].texte_accueil;
         })

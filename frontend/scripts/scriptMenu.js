@@ -8,14 +8,14 @@ const parseRequestUrl = () => {
         id: request[3]
     } ;
 }
-/*let requestUrl = parseRequestUrl();
+let requestUrl = parseRequestUrl();
 let pageAccueil = false
 if(!requestUrl.page){
     pageAccueil = true
 }
 else{
     pageAccueil = false
-}*/
+}
 //On récupère la div cliquable
 let divMenu = document.getElementById('divMenu');
 
@@ -29,10 +29,19 @@ let nom = document.getElementById('name');
 //On récupère conteneur-name
 let conteneurName = document.getElementById('conteneurName');
 
+
 //On déclare un booléen faux pour valider une condition
 let isOuvert = false;
-//Au click du menu
-divMenu.addEventListener('click', () => {
+const gestionMenu = () => {
+    let requestUrl = parseRequestUrl();
+    let pageAccueil = false
+    if(requestUrl.page == undefined){
+        pageAccueil = true
+    }
+    else{
+        pageAccueil = false
+    }   
+    console.log(requestUrl.page);
     //Si le booléen est faux
     if(!isOuvert){
         //On rajoute la class css pour effectuer les mouvements
@@ -62,14 +71,22 @@ divMenu.addEventListener('click', () => {
             main.style.display = 'block';
             //On replace le titre
             nom.classList.remove('marginRight10');
-            /*conteneurName.style.position = "relative";
-            if(pageAccueil){
-                conteneurName.style.position = "absolute";
+          //  conteneurName.style.position = "relative";
+           /* if(requestUrl.page){
+                conteneurName.style.position = "relative";
             }*/
 
         },300)
         isOuvert = false;
     }
+}
+//Au click du menu
+divMenu.addEventListener('click', gestionMenu);
+
+let links = document.getElementsByClassName('links');
+
+Array.from(links).forEach(link =>{
+    link.addEventListener('click', gestionMenu)
 })
 
 let blocPanier = document.getElementById('blocPanier')

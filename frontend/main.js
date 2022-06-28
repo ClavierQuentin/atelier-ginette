@@ -7,6 +7,7 @@ import produits from "./pages/produits.js";
 
 import { parseRequestUrl } from "./utils.js";
 
+
 const routes = {
     "/" : homePage,
     "/pages": homePage,
@@ -17,9 +18,8 @@ const routes = {
     "/contact": contactPage
 }
 
-const router = () =>{
+const router = () =>{  
     const request = parseRequestUrl();
-    
     const parseUrl = (request.page? `/${request.page}` : '/') + (request.destination? `/${request.destination}` : "") + (request.id? `/id` : "");
     const screen = routes[parseUrl]? routes[parseUrl] : "";
     screen.generate();
@@ -29,6 +29,7 @@ window.addEventListener('load', () =>{
 });
 
 window.addEventListener('hashchange', () =>{
+
     router();
     document.documentElement.scrollTop = 0;
 })
