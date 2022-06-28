@@ -45,11 +45,11 @@ const homePage = {
             <!---------------------------------BANNIERE PRESENTATION------------------------>
                 <div class="prez">
                             <!--TITRE-->
-                    <h2>${texte[texte.length-1].titre_accueil}</h2>
+                    <h2>${texte[0].titre_accueil}</h2>
                 </div>
                 <!--TEXTE-->
                 <div class="banniereCitation">
-                    <p>${texte[texte.length-1].texte_accueil}</p>
+                    <p>${texte[0].texte_accueil}</p>
                 </div>
                 <!-------------------------------------BANNIERE CATEGORIES---------------------------------------->
             <div class="backGroundFleur">
@@ -59,7 +59,7 @@ const homePage = {
                 </div>
                 <div class="categories">
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[0].id_categorie}">
+                    <a href="#/pages/categories/${listeCategories[0].id_categorie}" >
                         <div>
                             <div class="divImg">
                                 <img class="imgCategorie" src="${listeCategories[0].url_img}" alt="">
@@ -69,7 +69,7 @@ const homePage = {
                     </a>
                     <!---->
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[1].id_categorie}">
+                    <a href="#/pages/categories/${listeCategories[1].id_categorie}" >
                         <div>
                             <div class="divImg">
                                 <img class="imgCategorie" src="${listeCategories[1].url_img}" alt="">
@@ -79,7 +79,7 @@ const homePage = {
                     </a>
                     <!---->
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[2].id_categorie}">
+                    <a href="#/pages/categories/${listeCategories[2].id_categorie}" >
                         <div>
                             <div class="divImg">
                                 <img class="imgCategorie" src="${listeCategories[2].url_img}" alt="">
@@ -89,7 +89,7 @@ const homePage = {
                     </a>
                     <!---->
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[4].id_categorie}">
+                    <a href="#/pages/categories/${listeCategories[4].id_categorie}" >
                         <div>
                         <div class="divImg">
                                 <img class="imgCategorie" src="${listeCategories[4].url_img}" alt="">

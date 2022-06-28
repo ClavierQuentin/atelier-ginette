@@ -22,7 +22,7 @@ const categories = {
                 <div id="cardsProduits" class="cardsProduits">
                     ${listeCategories.map( 
                         listeCategories =>`
-                            <a href="#/pages/categories/${listeCategories.id_categorie}" class="card">
+                            <a href="#/pages/categories/${listeCategories.id_categorie}" onclick="location.reload()" class="card">
                                 <div class="conteneurImgCard">
                                     <img class="imgCardProduit" src="${listeCategories.url_img}" alt="">
                                 </div>

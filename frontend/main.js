@@ -30,5 +30,9 @@ window.addEventListener('load', () =>{
 
 window.addEventListener('hashchange', () =>{
     router();
+    const request = parseRequestUrl();
+    if(request.id){
+        location.reload()
+    }
     document.documentElement.scrollTop = 0;
 })

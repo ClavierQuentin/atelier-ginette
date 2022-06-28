@@ -57,7 +57,7 @@ app.get('/api/produit/', (req, res) => {
     })
 });
 app.get('/home/', (req, res)=>{
-    let sql = `SELECT * FROM textes_accueil`
+    let sql = `SELECT * FROM textes_accueil WHERE id_texte_accueil = (SELECT MAX(id_texte_accueil) FROM textes_accueil)`
     db.query(sql, (err, result) => {
         if(err){
             throw err  
