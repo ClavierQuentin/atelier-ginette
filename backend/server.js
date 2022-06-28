@@ -19,16 +19,16 @@ app.use(bodyParser.json());
 
 
 const db = mysql.createConnection({
-    host: "localhost",
+   /*about host: "localhost",
     user: "root",
     password: "",
-    database: "atelier_ginette"
-    /*host: process.env.host,
+    database: "atelier_ginette"*/
+    host: process.env.host,
     user: process.env.user,
     password: process.env.password,
     database: process.env.database,
     charset  : 'UTF8_UNICODE_CI',
-    multipleStatements: true*/
+    multipleStatements: true
 })
 db.connect((err)=>{
     if(err){
