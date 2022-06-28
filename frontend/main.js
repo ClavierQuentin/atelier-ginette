@@ -30,6 +30,5 @@ window.addEventListener('load', () =>{
 
 window.addEventListener('hashchange', () =>{
     router();
-    location.reload();
     document.documentElement.scrollTop = 0;
 })

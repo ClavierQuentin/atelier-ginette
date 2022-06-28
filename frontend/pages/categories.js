@@ -1,6 +1,7 @@
 const categories = {
     generate: () => {
         let main = document.getElementById('main-conteneur');
+        const conteneurName = document.getElementById('conteneurName');
         fetch("/api/produit/",{
             headers:{
                 "Content-Type":"application/json",
@@ -32,6 +33,7 @@ const categories = {
                 </div>
             </div>
             `
+            conteneurName.style.position = 'relative';
         })
         .catch((err) => {
             console.log(err);

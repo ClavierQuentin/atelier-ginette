@@ -4,6 +4,7 @@ const request = parseRequestUrl();
 const produits = {
     generate: () => {
         let main = document.getElementById('main-conteneur');
+        const conteneurName = document.getElementById('conteneurName');
         fetch(`/pages/categories/${request.id}`,{
             headers:{
                 "Content-Type":"application/json",
@@ -36,6 +37,7 @@ const produits = {
                 </div>
             </div>
             `
+            conteneurName.style.position = 'relative';
         })
         .catch((err) => {
             console.log(err);
