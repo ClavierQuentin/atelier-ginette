@@ -19,12 +19,16 @@ app.use(bodyParser.json());
 
 
 const db = mysql.createConnection({
-    host: process.env.host,
+    host:"localhost",
+    user:"root",
+    password:"",
+    database:"atelier_ginette"
+  /*  host: process.env.host,
     user: process.env.user,
     password: process.env.password,
     database: process.env.database,
     charset  : 'UTF8_UNICODE_CI',
-    multipleStatements: true
+    multipleStatements: true*/
 })
 db.connect((err)=>{
     if(err){
@@ -52,7 +56,15 @@ app.get('/api/produit/', (req, res) => {
         res.send(article)
     })
 });
-
+app.get('/home/',(req, res)=>{
+    let sql = `SELECT * FROM textes_accueil WHERE id_texte_accueil=(SELECT MAX(id_texte_accueil) FROM textes_accueil)`
+    db.query(sql,(err, result)=>{
+        if(err){
+            throw err
+        }
+        res.status(200).send(result)
+    })
+})
 
 app.get("/pages/about/", (req,res) => {
     let sql = `SELECT * FROM images_prez`;
