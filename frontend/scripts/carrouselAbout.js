@@ -1,5 +1,5 @@
 const carrouselAbout = (data) => {
-    const listeImages = data;
+    const listeImages = data.data[0].attributes.Carrousel.data;
     let  listeImagesCarrou = [listeImages[8], listeImages[7], listeImages[4], listeImages[6]];
     //On récupère l'élément HTML
     let carrouselPrez = document.getElementById('carrouselPrez');
@@ -11,9 +11,9 @@ const carrouselAbout = (data) => {
     //Fonction de génération des images
     function generate(){
     //Pour la taille du tableau, on implémente le src et la classe aux images
-        for(let i = 0; i < listeImagesCarrou.length; i++){
+        for(let i = 0; i < listeImages.length; i++){
             let photoPrez = document.createElement('img');
-            photoPrez.src = listeImagesCarrou[i].url_image;
+            photoPrez.src = "../back-atelier/public"+listeImages[i].attributes.formats.medium.url;
             photoPrez.classList.add('tailleImg');
             carrouselPrez.appendChild(photoPrez);
         }
@@ -25,7 +25,7 @@ const carrouselAbout = (data) => {
     //Fonction pour le slide du carrousel
     function slide(){
         //Si on arrive sur la dernière image
-        if(compteurPrez == listeImagesCarrou.length){
+        if(compteurPrez == listeImages.length){
             //On met le compteur à 0
             compteurPrez = 0;
         }

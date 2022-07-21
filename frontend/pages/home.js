@@ -5,7 +5,7 @@ const homePage = {
         let main = document.getElementById('main-conteneur');
         const conteneurName = document.getElementById('conteneurName');
     
-        fetch('/api/produit/',{
+        fetch('http://localhost:1337/api/categories?populate[articles][populate][0]=image&populate=image_categories',{
             headers:{
                 "Content-Type":"application/json",
             }
@@ -16,8 +16,8 @@ const homePage = {
             }
         })
         .then(function(data){
-            const listeCategories = data;
-            fetch('/home/', {
+            const listeCategories = data.data;
+            fetch('http://localhost:1337/api/texte-accueils', {
                 headers:{
                     "Content-Type":"application/json",
                 }
@@ -28,8 +28,7 @@ const homePage = {
                 }
             })
             .then((result)=>{
-                const texte = result;
-                console.log(texte);
+                const texte = result.data[0].attributes;
         
                 main.innerHTML = `
                 <header>
@@ -45,11 +44,11 @@ const homePage = {
             <!---------------------------------BANNIERE PRESENTATION------------------------>
                 <div class="prez">
                             <!--TITRE-->
-                    <h2>${texte[0].titre_accueil}</h2>
+                    <h2>${texte.titre_accueil}</h2>
                 </div>
                 <!--TEXTE-->
                 <div class="banniereCitation">
-                    <p>${texte[0].texte_accueil}</p>
+                    <p>${texte.texte_accueil}</p>
                 </div>
                 <!-------------------------------------BANNIERE CATEGORIES---------------------------------------->
             <div class="backGroundFleur">
@@ -59,42 +58,42 @@ const homePage = {
                 </div>
                 <div class="categories">
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[0].id_categorie}" >
+                    <a href="#/pages/categories/${listeCategories[0].id}" >
                         <div>
                             <div class="divImg">
-                                <img class="imgCategorie" src="${listeCategories[0].url_img}" alt="">
+                                <img class="imgCategorie" src="../back-atelier/public${listeCategories[0].attributes.image_categories.data[0].attributes.formats.medium.url}" alt="">
                             </div
-                            <label for="">${listeCategories[0].nom_categorie}</label>
+                            <label for="">${listeCategories[0].attributes.nom_categorie}</label>
                         </div>
                     </a>
                     <!---->
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[1].id_categorie}" >
+                    <a href="#/pages/categories/${listeCategories[1].id}" >
                         <div>
                             <div class="divImg">
-                                <img class="imgCategorie" src="${listeCategories[1].url_img}" alt="">
+                                <img class="imgCategorie" src="../back-atelier/public${listeCategories[1].attributes.image_categories.data[0].attributes.formats.medium.url}" alt="">
                             </div>
-                            <label for="">${listeCategories[1].nom_categorie}</label>
+                            <label for="">${listeCategories[1].attributes.nom_categorie}</label>
                         </div>
                     </a>
                     <!---->
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[2].id_categorie}" >
+                    <a href="#/pages/categories/${listeCategories[2].id}" >
                         <div>
                             <div class="divImg">
-                                <img class="imgCategorie" src="${listeCategories[2].url_img}" alt="">
+                                <img class="imgCategorie" src="../back-atelier/public${listeCategories[2].attributes.image_categories.data[0].attributes.formats.medium.url}" alt="">
                             </div>
-                            <label for="">${listeCategories[2].nom_categorie}</label>
+                            <label for="">${listeCategories[2].attributes.nom_categorie}</label>
                         </div>
                     </a>
                     <!---->
                     <!--CATEGORIE-->
-                    <a href="#/pages/categories/${listeCategories[4].id_categorie}" >
+                    <a href="#/pages/categories/${listeCategories[4].id}" >
                         <div>
                         <div class="divImg">
-                                <img class="imgCategorie" src="${listeCategories[4].url_img}" alt="">
+                                <img class="imgCategorie" src="../back-atelier/public${listeCategories[3].attributes.image_categories.data[0].attributes.formats.medium.url}" alt="">
                         </div>
-                        <label for="">${listeCategories[4].nom_categorie}</label>
+                        <label for="">${listeCategories[4].attributes.nom_categorie}</label>
                         </div>
                     </a>
                     <!---->
@@ -117,7 +116,7 @@ const homePage = {
             </div>
         
                 `
-            fonctionCarrousel(data);
+            fonctionCarrousel(listeCategories);
             conteneurName.style.position = "absolute";
             })
         })

@@ -4,12 +4,10 @@
   "description": "atelier v2",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server . -p 4000 -P \"http://localhost:4000\"",
+    "start": "http-server -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "http-server": "^14.1.1"
-  }
+  "dependencies": {}
 }

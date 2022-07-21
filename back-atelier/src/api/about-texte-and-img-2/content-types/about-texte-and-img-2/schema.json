@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_texte_and_img_2s",
+  "info": {
+    "singularName": "about-texte-and-img-2",
+    "pluralName": "about-texte-and-img-2s",
+    "displayName": "About_texte&img_2",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Texte": {
+      "type": "richtext"
+    },
+    "Carrousel": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

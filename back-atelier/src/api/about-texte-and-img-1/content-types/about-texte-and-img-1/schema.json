@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_texte_and_img_1s",
+  "info": {
+    "singularName": "about-texte-and-img-1",
+    "pluralName": "about-texte-and-img-1s",
+    "displayName": "about_texte&img_1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Texte": {
+      "type": "richtext"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

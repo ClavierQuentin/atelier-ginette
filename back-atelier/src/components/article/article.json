@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_article_articles",
+  "info": {
+    "displayName": "article"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
